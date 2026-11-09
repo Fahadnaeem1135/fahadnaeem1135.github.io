@@ -1,0 +1,78 @@
+/* =========================================================
+   BACKGROUND TEXTURES + ANIMATIONS
+   Moving grids, glowing orbs, particles, film grain, light rays, per-section textures, global background layer, footer rings/floor, card textures.
+   Theme colours used everywhere:
+     lime  = #88ff2a  (same colour written as rgba(136,255,42, ...))
+     black = #000000, dark grey = #0d0d0d / #151414, white = #ffffff
+   ========================================================= */
+#home::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(136,255,42,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(136,255,42,.07) 1px,transparent 1px);background-size:64px 64px;animation:gridMove 16s linear infinite;-webkit-mask-image:radial-gradient(ellipse at 65% 45%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 65% 45%,#000 0%,transparent 72%)}
+@keyframes gridMove{to{background-position:64px 64px}}
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id])){position:relative;isolation:isolate;overflow:clip}
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::before{content:"";position:absolute;z-index:-1;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(136,255,42,.11),rgba(136,255,42,0) 65%);animation:orbFloat 24s ease-in-out infinite;pointer-events:none}
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.85;background-image:radial-gradient(2px 2px at 8% 18%,rgba(136,255,42,.8),transparent 70%),radial-gradient(1.5px 1.5px at 28% 76%,rgba(255,255,255,.6),transparent 70%),radial-gradient(2px 2px at 52% 38%,rgba(136,255,42,.7),transparent 70%),radial-gradient(1.5px 1.5px at 72% 64%,rgba(255,255,255,.5),transparent 70%),radial-gradient(2px 2px at 88% 12%,rgba(136,255,42,.7),transparent 70%),radial-gradient(1.5px 1.5px at 42% 92%,rgba(136,255,42,.6),transparent 70%),radial-gradient(1.5px 1.5px at 64% 8%,rgba(255,255,255,.5),transparent 70%);background-size:620px 620px;animation:particlesRise 46s linear infinite}
+@keyframes particlesRise{to{background-position:0 -620px}}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(90px,-70px) scale(1.15)}66%{transform:translate(-70px,60px) scale(.9)}}
+#about::before{left:-180px;top:8%}
+#services::before{right:-200px;top:-100px;animation-delay:-6s}
+#skills::before{left:28%;bottom:-240px;animation-delay:-12s}
+#work::before{right:-220px;top:28%;animation-delay:-3s}
+#clients::before{left:-200px;top:38%;animation-delay:-9s}
+#experience::before{right:-180px;top:12%;animation-delay:-15s}
+section[style*="padding: 100px 0"]::before{left:40%;top:-220px;animation-delay:-18s}
+section[style*="padding: 120px 0"]:not([id])::before{left:-160px;bottom:-200px;animation-delay:-20s}
+.grain{position:fixed;inset:-10%;z-index:40;pointer-events:none;opacity:.7;background-image:radial-gradient(rgba(255,255,255,.05) .6px,transparent 1px),radial-gradient(rgba(255,255,255,.04) .6px,transparent 1px),radial-gradient(rgba(0,0,0,.35) .7px,transparent 1.2px);background-size:7px 7px,11px 13px,17px 19px;background-position:0 0,3px 5px,9px 2px;animation:grain .9s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2px,3px)}50%{transform:translate(3px,-2px)}75%{transform:translate(-3px,-3px)}100%{transform:translate(2px,2px)}}
+#home{overflow:clip}
+#home::after{content:"";position:absolute;right:-380px;top:-560px;width:1300px;height:1300px;z-index:0;pointer-events:none;background:repeating-conic-gradient(from 0deg,rgba(136,255,42,.07) 0deg 3deg,transparent 3deg 15deg);-webkit-mask-image:radial-gradient(circle,#000 0%,transparent 62%);mask-image:radial-gradient(circle,#000 0%,transparent 62%);animation:spin 120s linear infinite}
+#about{background-image:repeating-radial-gradient(circle at 88% 38%,rgba(136,255,42,.06) 0 1px,transparent 1px 48px);animation:ringPulse 14s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{background-size:100% 100%}50%{background-size:108% 108%}}
+#services{background-image:radial-gradient(rgba(136,255,42,.13) 1px,transparent 1.6px) !important;background-size:28px 28px !important;animation:dotDrift 26s linear infinite}
+@keyframes dotDrift{to{background-position:28px 56px}}
+#skills{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.028) 0 2px,transparent 2px 16px);animation:stripeSlide 24s linear infinite}
+@keyframes stripeSlide{to{background-position:226px 0}}
+#clients{background-image:linear-gradient(180deg,rgba(136,255,42,0) 0%,rgba(136,255,42,.06) 50%,rgba(136,255,42,0) 100%),radial-gradient(rgba(136,255,42,.10) 1px,transparent 1.6px) !important;background-size:100% 520px,22px 22px !important;background-repeat:no-repeat,repeat !important;animation:scanDown 9s linear infinite}
+@keyframes scanDown{from{background-position:0 -520px,0 0}to{background-position:0 calc(100% + 520px),22px 22px}}
+#experience{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) !important;background-size:80px 80px !important;animation:gridMove2 30s linear infinite}
+@keyframes gridMove2{to{background-position:80px 80px}}
+section[style*="padding: 100px 0"]{background-image:repeating-linear-gradient(-45deg,rgba(136,255,42,.045) 0 1px,transparent 1px 18px) !important;animation:stripeSlide 30s linear infinite}
+section[style*="padding: 120px 0"]:not([id]){background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 24px);animation:linesUp 12s linear infinite}
+@keyframes linesUp{to{background-position:0 -240px}}
+/* ===== global background layer (fills every plain black area) ===== */
+div:has(> .bgfx){isolation:isolate}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 34px),repeating-linear-gradient(-45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 34px),radial-gradient(rgba(136,255,42,.10) 1px,transparent 1.5px);background-size:auto,auto,48px 48px;animation:fxDrift 40s linear infinite}
+@keyframes fxDrift{to{background-position:48px 0,-48px 0,48px 48px}}
+.bgfx i{position:absolute;display:block;border-radius:50%;will-change:transform}
+.bgfx i:nth-child(1){width:720px;height:720px;left:-240px;top:10%;background:radial-gradient(circle,rgba(136,255,42,.10),rgba(136,255,42,0) 65%);animation:aurA 34s ease-in-out infinite alternate}
+.bgfx i:nth-child(2){width:620px;height:620px;right:-220px;top:45%;background:radial-gradient(circle,rgba(136,255,42,.08),rgba(136,255,42,0) 65%);animation:aurB 41s ease-in-out infinite alternate}
+.bgfx i:nth-child(3){width:520px;height:520px;left:35%;bottom:-260px;background:radial-gradient(circle,rgba(255,255,255,.05),rgba(255,255,255,0) 65%);animation:aurA 29s ease-in-out infinite alternate-reverse}
+.bgfx i:nth-child(4){border-radius:0;width:140vmax;height:90px;left:-20vmax;top:30%;background:linear-gradient(180deg,transparent,rgba(136,255,42,.045),transparent);transform:rotate(-24deg);animation:beam 16s linear infinite}
+.bgfx i:nth-child(5),.bgfx i:nth-child(6){border-radius:2px;width:160px;height:1px;top:0;left:0;background:linear-gradient(90deg,rgba(136,255,42,0),#88ff2a);opacity:0;animation:star 9s linear infinite}
+.bgfx i:nth-child(6){animation-delay:-4.5s;animation-duration:11s}
+@keyframes aurA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18vw,-8vh) scale(1.2)}100%{transform:translate(6vw,14vh) scale(.9)}}
+@keyframes aurB{0%{transform:translate(0,0) scale(1.1)}50%{transform:translate(-16vw,10vh) scale(.85)}100%{transform:translate(-6vw,-12vh) scale(1.15)}}
+@keyframes beam{0%{transform:translateY(-70vh) rotate(-24deg)}100%{transform:translateY(90vh) rotate(-24deg)}}
+@keyframes star{0%{transform:translate(10vw,8vh) rotate(28deg);opacity:0}6%{opacity:.8}18%{transform:translate(60vw,38vh) rotate(28deg);opacity:0}100%{transform:translate(60vw,38vh) rotate(28deg);opacity:0}}
+/* header: dot texture + sweeping lime line */
+.site-header::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(136,255,42,.12) 1px,transparent 1.5px);background-size:18px 18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);animation:hdrDots 20s linear infinite}
+@keyframes hdrDots{to{background-position:180px 0}}
+.site-header::after{content:"";position:absolute;left:0;bottom:-1px;width:28%;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,#88ff2a,transparent);animation:hdrSweep 7s ease-in-out infinite}
+@keyframes hdrSweep{0%{transform:translateX(-100%)}100%{transform:translateX(460%)}}
+/* skills ticker strip */
+section[aria-label="Skills ticker"]{position:relative;background-image:repeating-linear-gradient(0deg,rgba(136,255,42,.05) 0 1px,transparent 1px 6px);animation:linesUp 6s linear infinite}
+/* work section: diamond lattice */
+#work{background-image:repeating-linear-gradient(60deg,rgba(136,255,42,.04) 0 1px,transparent 1px 40px),repeating-linear-gradient(-60deg,rgba(136,255,42,.04) 0 1px,transparent 1px 40px);animation:latDrift 32s linear infinite}
+@keyframes latDrift{to{background-position:0 160px,0 160px}}
+/* footer: rings rising from the bottom + perspective floor */
+#contact{isolation:isolate}
+#contact::before{content:"";position:absolute;left:50%;bottom:-700px;width:1400px;height:1400px;margin-left:-700px;z-index:-1;pointer-events:none;border-radius:50%;background:repeating-radial-gradient(circle,rgba(136,255,42,.075) 0 1px,transparent 1px 56px);-webkit-mask-image:radial-gradient(circle,#000 20%,transparent 70%);mask-image:radial-gradient(circle,#000 20%,transparent 70%);animation:ringRise 10s linear infinite}
+@keyframes ringRise{from{transform:scale(1)}to{transform:scale(1.08)}}
+#contact::after{content:"";position:absolute;left:-25%;right:-25%;bottom:0;height:260px;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(136,255,42,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(136,255,42,.10) 1px,transparent 1px);background-size:64px 64px;transform:perspective(420px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(0deg,#000,transparent);mask-image:linear-gradient(0deg,#000,transparent);animation:floorMove 4s linear infinite}
+@keyframes floorMove{to{background-position:0 64px,0 0}}
+#contact > div:first-child{background-image:repeating-linear-gradient(115deg,rgba(136,255,42,.06) 0 2px,transparent 2px 22px) !important;animation:stripeSlide 14s linear infinite}
+.ft-badge{background-image:repeating-conic-gradient(rgba(136,255,42,.08) 0 6deg,transparent 6deg 18deg)}
+/* black cards: fine texture + hover sheen */
+.skill-card,.cl-card,.work{background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1.4px),linear-gradient(115deg,transparent 40%,rgba(136,255,42,.10) 50%,transparent 60%);background-size:16px 16px,250% 100%;background-position:0 0,150% 0;background-repeat:repeat,no-repeat;transition:background-position .9s ease,border-color .4s,transform .4s}
+.skill-card:hover,.cl-card:hover,.work:hover{background-position:0 0,-50% 0}
+.svc{background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.4px);background-size:16px 16px}
+@media (max-width:700px){.bgfx i:nth-child(1),.bgfx i:nth-child(2){width:420px;height:420px}#contact::before{width:900px;height:900px;margin-left:-450px;bottom:-450px}}
+@media (prefers-reduced-motion:reduce){.bgfx,.bgfx i,.site-header::before,.site-header::after,#contact::before,#contact::after,#work,section[aria-label="Skills ticker"]{animation:none !important}}
