@@ -1,0 +1,22 @@
+/* =========================================================
+   MOBILE / TABLET
+   Mobile menu (hamburger) and all phone/tablet layout fixes. Also social icon + outline text styles.
+   Theme colours used everywhere:
+     lime  = #88ff2a  (same colour written as rgba(136,255,42, ...))
+     black = #000000, dark grey = #0d0d0d / #151414, white = #ffffff
+   ========================================================= */
+#services [style*="minmax(280px, 1fr)"]{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr)) !important}
+.mnav{display:none}
+@media (max-width: 900px){.mnav{display:block;order:3}.mnav summary{list-style:none;width:48px;height:48px;box-sizing:border-box;border-radius:14px;border:1px solid rgba(255,255,255,.22);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}.mnav summary::-webkit-details-marker{display:none}.mnav summary span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}.mnav[open] summary{border-color:#88ff2a}.mnav[open] summary span:nth-child(1){transform:translateY(7px) rotate(45deg)}.mnav[open] summary span:nth-child(2){opacity:0}.mnav[open] summary span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mnav-panel{position:absolute;left:0;right:0;top:100%;background:#050505;border-bottom:1px solid rgba(136,255,42,.35);padding:8px 24px 24px;display:flex;flex-direction:column;animation:fadeUp .35s ease both}.mnav-panel a{display:flex;align-items:center;min-height:52px;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:18px;font-weight:500}.mnav-panel a:hover{color:#88ff2a}.mnav-panel a.mnav-wa{margin-top:16px;justify-content:center;border:0;border-radius:999px;background:#88ff2a;color:#000;font-weight:600}.site-header .btn{margin-left:auto}}
+@media (max-width: 700px){#home{padding:56px 0 72px !important}section[style*="padding: 120px 0"]{padding:72px 0 !important}section[style*="padding: 100px 0"]{padding:64px 0 !important}#contact .wrap{padding-top:72px !important}.ft-line{margin-top:64px !important}.site-header .btn{padding:0 18px !important;min-height:44px !important;white-space:nowrap;font-size:15px}.site-header .btn svg{display:none}#about .reveal-r{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:10px !important}.stat-card{min-height:136px !important;padding:16px 6px !important;gap:8px !important;border-radius:18px !important}.stat-card>div:first-child{font-size:34px !important}.stat-card>div:last-child{font-size:12.5px !important}.svc{padding:24px 22px !important}.svc h3{margin-top:18px !important;font-size:21px !important}.cl-card{padding:20px !important;gap:14px !important}.cl-grid{gap:14px !important}.work .cover{height:210px !important}.work .cover>[aria-hidden="true"]{display:none}.metric{font-size:46px !important}.exp-row{gap:14px !important;padding:28px 0 !important}.wa-float{width:54px;height:54px;right:16px;bottom:16px}.wa-float svg{width:24px;height:24px}}
+
+.social{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;justify-content:center;color:#fff;transition:background .3s,color .3s}
+.social:hover{background:#88ff2a;color:#000;border-color:#88ff2a}
+
+.outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+
+@media (max-width: 900px){
+  .nav{display:none !important}
+  .exp-row{grid-template-columns:minmax(0,1fr)}
+  .hide-sm{display:none !important}
+}
