@@ -1,0 +1,77 @@
+/* =========================================================
+   HEADER + HERO EFFECTS
+   Header slide-in, menu underline, button shine, typing roles, orbit rings, floating bubbles, text reveal, marquee (scrolling text) and scroll-reveal animations.
+   Theme colours used everywhere:
+     lime  = #88ff2a  (same colour written as rgba(136,255,42, ...))
+     black = #000000, dark grey = #0d0d0d / #151414, white = #ffffff
+   ========================================================= */
+/* ===== header / hero extra effects ===== */
+.site-header{animation:slideDown .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
+.nav > a,.dd-trigger{position:relative}
+.nav > a:after,.dd-trigger:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:#88ff2a;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.nav > a:hover:after,.dd:hover .dd-trigger:after{transform:scaleX(1);transform-origin:left}
+.logo-mark{animation:logoPop 3s ease-in-out infinite}
+@keyframes logoPop{0%,100%{transform:rotate(0)}10%{transform:rotate(-12deg) scale(1.08)}20%{transform:rotate(0) scale(1)}}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0),rgba(255,255,255,.6),rgba(255,255,255,0));transform:skewX(-20deg);animation:shine 3.5s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.shimmer{background:linear-gradient(90deg,#88ff2a 0%,#ffffff 25%,#88ff2a 50%,#ffffff 75%,#88ff2a 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 5s linear infinite}
+@keyframes shimmer{to{background-position:-200% center}}
+.role-window{display:inline-block;height:1.4em;overflow:hidden;vertical-align:bottom}
+.role-track{display:flex;flex-direction:column;animation:roles 12s cubic-bezier(.75,0,.25,1) infinite}
+.role-track span{display:block;height:1.4em;line-height:1.4em;color:#88ff2a;font-weight:600;white-space:nowrap}
+@keyframes roles{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-1.4em)}50%,70%{transform:translateY(-2.8em)}75%,95%{transform:translateY(-4.2em)}100%{transform:translateY(-5.6em)}}
+.caret{display:inline-block;width:3px;height:1.1em;background:#88ff2a;margin-left:6px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.glow-drift{animation:drift 12s ease-in-out infinite}
+@keyframes drift{50%{transform:translate(-90px,70px) scale(1.15)}}
+.orbit{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(136,255,42,.35);animation:orbitSpin 40s linear infinite;pointer-events:none}
+.orbit.two{width:96%;border:1px solid rgba(255,255,255,.08);animation-duration:60s;animation-direction:reverse}
+.orbit:before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:#88ff2a;box-shadow:0 0 18px 4px rgba(136,255,42,.6)}
+@keyframes orbitSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.bubble{position:absolute;z-index:3;width:58px;height:58px;border-radius:50%;background:#0d0d0d;border:1px solid rgba(136,255,42,.5);color:#88ff2a;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.6);animation:bob 4s ease-in-out infinite;transition:background .3s,color .3s}
+.bubble:hover{background:#88ff2a;color:#000}
+@keyframes bob{50%{transform:translateY(-16px)}}
+.float-chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:14px;background:rgba(13,13,13,.9);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:14px;font-weight:500;white-space:nowrap;box-shadow:0 16px 40px rgba(0,0,0,.6);animation:bob 5s ease-in-out infinite}
+.scroll-cue{display:inline-flex;align-items:center;gap:12px;color:rgba(255,255,255,.6);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.5);border-radius:14px;position:relative}
+.mouse:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#88ff2a;animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+@media (prefers-reduced-motion: reduce){*,*:before,*:after{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+
+/* hero split-text reveal */
+.line{display:block;overflow:hidden}
+.word{display:inline-block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.fade{opacity:0;animation:fadeUp 1s ease forwards}
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(136,255,42,0)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes marqueeRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes drop{0%{top:-10%}100%{top:110%}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+.spin{animation:spin 16s linear infinite}
+.float{animation:float 5s ease-in-out infinite}
+.vline{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.07);overflow:hidden}
+.vline:after{content:"";position:absolute;left:-1px;width:3px;height:90px;background:linear-gradient(#0000,#88ff2a);animation:drop 6s linear infinite}
+
+/* marquee */
+.marquee{display:flex;width:max-content;animation:marquee 32s linear infinite}
+.marquee.rev{animation:marqueeRev 38s linear infinite}
+.mq-item{display:inline-flex;align-items:center;gap:28px;padding:0 28px;white-space:nowrap}
+
+/* scroll reveal (pure CSS, view timeline) */
+@supports (animation-timeline: view()){
+  .reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+  .reveal-l{animation:slideL linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+  .reveal-r{animation:slideR linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+  .img-reveal{animation:clip linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
+  .bar{transform-origin:left;animation:grow linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+}
+@keyframes slideL{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes clip{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
