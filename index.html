@@ -7,7 +7,7 @@
 <meta name="description" content="Fahad Naeem — Digital Marketing & Brand Manager with 6+ years of experience in social media marketing, branding, PR and outreach for US, UK and international clients.">
 <meta property="og:title" content="Fahad Naeem — Digital Marketing Manager">
 <meta property="og:description" content="Social media marketing, brand management, PR and outreach for US, UK and international brands.">
-<meta property="og:image" content="fahad-portrait.webp">
+<meta property="og:image" content="https://fahadnaeem1135.github.io/fahad-portrait.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2388ff2a'/%3E%3Ctext x='32' y='45' font-family='Arial' font-weight='800' font-size='38' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -42,6 +42,40 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 .skill-card:hover{border-color:#88ff2a;transform:translateY(-6px)}
 .chip{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;background:#151414;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.85);font-size:14px;transition:background .3s,color .3s}
 .chip:hover{background:#88ff2a;color:#000}
+/* ===== header / hero extra effects ===== */
+.site-header{animation:slideDown .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
+.nav > a,.dd-trigger{position:relative}
+.nav > a:after,.dd-trigger:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:#88ff2a;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.nav > a:hover:after,.dd:hover .dd-trigger:after{transform:scaleX(1);transform-origin:left}
+.logo-mark{animation:logoPop 3s ease-in-out infinite}
+@keyframes logoPop{0%,100%{transform:rotate(0)}10%{transform:rotate(-12deg) scale(1.08)}20%{transform:rotate(0) scale(1)}}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0),rgba(255,255,255,.6),rgba(255,255,255,0));transform:skewX(-20deg);animation:shine 3.5s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.shimmer{background:linear-gradient(90deg,#88ff2a 0%,#ffffff 25%,#88ff2a 50%,#ffffff 75%,#88ff2a 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 5s linear infinite}
+@keyframes shimmer{to{background-position:-200% center}}
+.role-window{display:inline-block;height:1.4em;overflow:hidden;vertical-align:bottom}
+.role-track{display:flex;flex-direction:column;animation:roles 12s cubic-bezier(.75,0,.25,1) infinite}
+.role-track span{display:block;height:1.4em;line-height:1.4em;color:#88ff2a;font-weight:600;white-space:nowrap}
+@keyframes roles{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-1.4em)}50%,70%{transform:translateY(-2.8em)}75%,95%{transform:translateY(-4.2em)}100%{transform:translateY(-5.6em)}}
+.caret{display:inline-block;width:3px;height:1.1em;background:#88ff2a;margin-left:6px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.glow-drift{animation:drift 12s ease-in-out infinite}
+@keyframes drift{50%{transform:translate(-90px,70px) scale(1.15)}}
+.orbit{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(136,255,42,.35);animation:orbitSpin 40s linear infinite;pointer-events:none}
+.orbit.two{width:96%;border:1px solid rgba(255,255,255,.08);animation-duration:60s;animation-direction:reverse}
+.orbit:before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:#88ff2a;box-shadow:0 0 18px 4px rgba(136,255,42,.6)}
+@keyframes orbitSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.bubble{position:absolute;z-index:3;width:58px;height:58px;border-radius:50%;background:#0d0d0d;border:1px solid rgba(136,255,42,.5);color:#88ff2a;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.6);animation:bob 4s ease-in-out infinite;transition:background .3s,color .3s}
+.bubble:hover{background:#88ff2a;color:#000}
+@keyframes bob{50%{transform:translateY(-16px)}}
+.float-chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:14px;background:rgba(13,13,13,.9);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:14px;font-weight:500;white-space:nowrap;box-shadow:0 16px 40px rgba(0,0,0,.6);animation:bob 5s ease-in-out infinite}
+.scroll-cue{display:inline-flex;align-items:center;gap:12px;color:rgba(255,255,255,.6);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.5);border-radius:14px;position:relative}
+.mouse:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#88ff2a;animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+@media (prefers-reduced-motion: reduce){*,*:before,*:after{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
 /* hero split-text reveal */
 .line{display:block;overflow:hidden}
 .word{display:inline-block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
@@ -106,10 +140,10 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 </head>
 <body>
 <div style="background: #000000; color: rgba(255,255,255,0.6); font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; line-height: 1.75; overflow: hidden">
-<header style="position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08)">
+<header class="site-header" style="position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08)">
 <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px">
 <a href="#home" style="display: flex; align-items: center; gap: 10px; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">
-<span style="width: 40px; height: 40px; border-radius: 12px; background: #88ff2a; color: #000000; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800">F</span>
+<span class="logo-mark" style="width: 40px; height: 40px; border-radius: 12px; background: #88ff2a; color: #000000; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800">F</span>
 <span>Fahad<span style="color: #88ff2a">.</span></span>
 </a>
 <nav class="nav" aria-label="Main" style="display: flex; align-items: center; gap: 34px">
@@ -150,15 +184,18 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 <div class="vline hide-sm" style="left: 40%"></div>
 <div class="vline hide-sm" style="left: 60%"></div>
 <div class="vline hide-sm" style="left: 80%"></div>
-<div aria-hidden="true" style="position: absolute; right: -180px; top: -120px; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(136,255,42,0.16), rgba(136,255,42,0) 65%)"></div>
+<div class="glow-drift" aria-hidden="true" style="position: absolute; right: -180px; top: -120px; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(136,255,42,0.16), rgba(136,255,42,0) 65%)"></div>
 <div class="wrap" style="position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
 <div style="flex: 999 1 560px; min-width: 0">
 <div class="eyebrow fade" style="animation-delay: .1s">Hello, I’m Fahad Naeem</div>
 <h1 style="margin: 22px 0 0; font-size: clamp(52px, 8.4vw, 124px); line-height: 1.0; font-weight: 600; color: #ffffff; letter-spacing: -0.03em; text-transform: uppercase">
 <span class="line"><span class="word" style="animation-delay: .2s">Digital</span></span>
 <span class="line"><span class="word" style="animation-delay: .35s; color: #88ff2a">Marketing</span></span>
-<span class="line"><span class="word" style="animation-delay: .5s; background: linear-gradient(90deg, #88ff2a 0%, #ffffff 100%); -webkit-background-clip: text; background-clip: text; color: transparent">Manager</span></span>
+<span class="line"><span class="word" style="animation-delay: .5s"><span class="shimmer">Manager</span></span></span>
 </h1>
+<div class="fade" style="animation-delay: .7s; margin-top: 22px; font-size: clamp(20px, 2.2vw, 26px); color: #ffffff; font-weight: 400">
+Specialist in <span class="role-window"><span class="role-track"><span>Social Media Marketing</span><span>Brand Management</span><span>Outreach &amp; PR</span><span>Content Strategy</span><span>Social Media Marketing</span></span></span>
+</div>
 <p class="fade" style="animation-delay: .8s; margin: 30px 0 0; max-width: 560px; font-size: 19px">I build brands, grow audiences and turn social media into measurable business results — for clients across the US, UK and international markets.</p>
 <div class="fade" style="animation-delay: 1s; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 40px">
 <a class="btn" href="#work">View My Work</a>
@@ -174,8 +211,11 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 <span class="tag">Pakistan</span>
 <span class="tag">Global</span>
 </div>
+<a class="scroll-cue fade hide-sm" href="#about" style="animation-delay: 1.4s; margin-top: 48px"><span class="mouse" aria-hidden="true"></span>Scroll to explore</a>
 </div>
 <div class="fade" style="animation-delay: .6s; flex: 1 1 380px; min-width: 0; position: relative; display: flex; justify-content: center">
+<div class="orbit" aria-hidden="true"></div>
+<div class="orbit two" aria-hidden="true"></div>
 <div class="float photo-wrap" style="position: relative; width: 100%; max-width: 440px; aspect-ratio: 4 / 5; border-radius: 220px 220px 32px 32px; background: #88ff2a; padding: 10px; box-sizing: border-box">
 <div style="position: relative; width: 100%; height: 100%; border-radius: 210px 210px 24px 24px; overflow: hidden; background: #151414">
 <img class="photo" src="fahad-portrait.webp" alt="Fahad Naeem, Digital Marketing Manager" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%">
@@ -189,6 +229,11 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 </div>
 </div>
 </div>
+<span class="bubble" style="right: 4px; top: 70px; animation-delay: 0s" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></span>
+<span class="bubble" style="right: -14px; top: 47%; animation-delay: .8s" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></span>
+<span class="bubble" style="left: -26px; top: 64%; animation-delay: 1.6s" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></span>
+<span class="bubble" style="right: 30px; bottom: -10px; animation-delay: 2.4s" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="m10 9 5 3-5 3z"></path></svg></span>
+<span class="float-chip hide-sm" style="left: -64px; top: 44%; animation-delay: 1s"><span style="width: 10px; height: 10px; border-radius: 50%; background: #88ff2a; box-shadow: 0 0 0 4px rgba(136,255,42,0.2)"></span>US &amp; UK clients</span>
 <div style="position: absolute; left: 0; top: 36px; width: 170px; height: 170px; border-radius: 50%; background: #000000; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center">
 <svg class="spin" width="150" height="150" viewBox="0 0 200 200" style="position: absolute" role="img" aria-label="6+ years of experience">
 <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path></defs>
