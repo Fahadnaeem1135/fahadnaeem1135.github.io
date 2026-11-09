@@ -35,6 +35,7 @@
 .cl-card{display:flex;flex-direction:column;gap:18px;padding:26px;border-radius:24px;background:#000;border:1px solid rgba(255,255,255,.13);transition:transform .4s ease,border-color .4s}
 .cl-card:hover{transform:translateY(-6px);border-color:#88ff2a}
 .cl-av{width:60px;height:60px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#151414;border:2px solid #88ff2a;color:#88ff2a;font-weight:700;font-size:18px}
+img.cl-av{display:block;object-fit:cover;background:#ffffff;box-sizing:border-box;padding:0}
 .cl-legend{display:flex;flex-wrap:wrap;gap:10px;margin:44px 0 28px}
 .cl-chip{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;border:1px solid rgba(136,255,42,.45);color:#fff;font-size:14px;font-weight:500}
 .cl-tag{align-self:flex-start;display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:999px;background:rgba(136,255,42,.12);color:#88ff2a;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
