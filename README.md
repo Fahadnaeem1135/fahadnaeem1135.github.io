@@ -62,7 +62,7 @@ Rules:
 
 ## 3. Ready-made requests you can copy
 
-- **Add a client:** "Add a new client card for *Brand Name* (category: *Real Estate · Dubai*, Instagram link: *URL*, followers: *X*, posts: *Y*, short description: *…*). Copy the style of the existing cards."
+- **Add a client:** "Add a new client card for *Brand Name* (category: *Real Estate · Dubai*, Instagram link: *URL*, short description: *…*, logo file: `images/logos/brandname.png`, use the exact name of the file you uploaded). Copy the style of the existing cards." First upload the logo (a square picture) into the `images/logos` folder.
 - **Add a job:** (in `11-experience.html`) "Add a new job at the top: *Company*, *Role*, *2026 – Present*, with these bullet points: …"
 - **Change numbers:** (in `04-about.html`) "Change 50+ clients to 70+." Note: the count-up animation uses `--to: 50`, so ask Claude to change that number too.
 - **Add a service:** (in `05-services.html`) "Add a 10th service card called *…* with this text: … Use a suitable icon like the others."
@@ -73,6 +73,7 @@ Rules:
 ## 4. Images and files
 
 - Your photo is `fahad-portrait.webp` in the main folder. To replace it, upload a new photo with **exactly the same name**: **Add file → Upload files**, and GitHub replaces the old one. A portrait (taller than wide) photo works best.
+- Client logos are in `images/logos/` (one square picture per client, named after its Instagram handle).
 - To add a new image, upload it to the main folder and ask Claude to use `your-image-name.jpg` in the right place.
 - `Fahad-Naeem-CV.pdf` is your CV.
 
