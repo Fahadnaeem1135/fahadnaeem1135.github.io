@@ -194,6 +194,11 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 .marquee:hover{animation-play-state:paused}
 .work .tag{transition:border-color .3s,color .3s}
 .work:hover .tag{border-color:rgba(136,255,42,.6);color:#88ff2a}
+.wa-float{position:fixed;right:24px;bottom:24px;z-index:150;width:60px;height:60px;border-radius:50%;background:#88ff2a;color:#000;display:flex;align-items:center;justify-content:center;animation:waPulse 2.4s ease-out infinite;transition:transform .3s}
+.wa-float:hover{transform:scale(1.08)}
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(136,255,42,.6),0 12px 30px rgba(0,0,0,.5)}100%{box-shadow:0 0 0 18px rgba(136,255,42,0),0 12px 30px rgba(0,0,0,.5)}}
+.wa-float span{position:absolute;right:72px;white-space:nowrap;background:#0d0d0d;border:1px solid rgba(136,255,42,.4);color:#fff;font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px;opacity:0;transform:translateX(10px);transition:opacity .3s,transform .3s;pointer-events:none}
+.wa-float:hover span{opacity:1;transform:none}
 .social{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;justify-content:center;color:#fff;transition:background .3s,color .3s}
 .social:hover{background:#88ff2a;color:#000;border-color:#88ff2a}
 .outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
@@ -208,6 +213,7 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 <body>
 <div style="background: #000000; color: rgba(255,255,255,0.6); font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; line-height: 1.75; overflow-x: clip">
 <div class="progress" aria-hidden="true"></div>
+<a class="wa-float" href="https://wa.me/923228091396?text=Hi%20Fahad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener" aria-label="Chat with Fahad on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M9.5 9.5c.3 1.6 1.4 3 3 3.8l.9-.9c.2-.2.5-.2.8-.1l1.3.6c.3.1.4.4.3.7-.3 1-1.2 1.6-2.2 1.4-3-.6-5.3-2.9-5.9-5.9-.2-1 .4-1.9 1.4-2.2.3-.1.6 0 .7.3l.6 1.3c.1.3.1.6-.1.8z"></path></svg><span aria-hidden="true">Chat on WhatsApp</span></a>
 <header class="site-header" style="position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08)">
 <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px">
 <a href="#home" style="display: flex; align-items: center; gap: 10px; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">
@@ -1049,6 +1055,7 @@ Specialist in <span class="role-window"><span class="role-track"><span>Social Me
 <div class="ft-rise" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px">
 <a class="btn ping" href="mailto:fahadnaeem1136@gmail.com">fahadnaeem1136@gmail.com</a>
 <a class="btn-ghost" href="tel:+923228091396">+92 322 8091396</a>
+<a class="btn-ghost" href="https://wa.me/923228091396?text=Hi%20Fahad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M9.5 9.5c.3 1.6 1.4 3 3 3.8l.9-.9c.2-.2.5-.2.8-.1l1.3.6c.3.1.4.4.3.7-.3 1-1.2 1.6-2.2 1.4-3-.6-5.3-2.9-5.9-5.9-.2-1 .4-1.9 1.4-2.2.3-.1.6 0 .7.3l.6 1.3c.1.3.1.6-.1.8z"></path></svg> WhatsApp</a>
 </div>
 </div>
 <div class="ft-line bar" aria-hidden="true" style="margin-top: 110px"></div>
