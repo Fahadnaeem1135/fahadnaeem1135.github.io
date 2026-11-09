@@ -1,0 +1,41 @@
+/* =========================================================
+   BASE STYLES
+   Page basics, headings, buttons, top menu and dropdowns, skill chips, stat cards.
+   Theme colours used everywhere:
+     lime  = #88ff2a  (same colour written as rgba(136,255,42, ...))
+     black = #000000, dark grey = #0d0d0d / #151414, white = #ffffff
+   ========================================================= */
+body{margin:0;background:#000}
+a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
+.wrap{max-width:1350px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#88ff2a}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:#88ff2a;box-shadow:0 0 0 4px rgba(136,255,42,.18);animation:pulse 2s ease-in-out infinite}
+.h2{margin:14px 0 0;font-size:clamp(36px,4.6vw,60px);line-height:1.08;font-weight:600;color:#fff;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;background:#88ff2a;color:#000;font-weight:600;font-size:16px;transition:transform .35s ease,background .35s ease}
+.btn:hover{background:#fff;color:#000;transform:translateY(-3px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#fff;font-weight:500;font-size:16px;transition:border-color .35s,color .35s}
+.btn-ghost:hover{border-color:#88ff2a;color:#88ff2a}
+.arrow{width:56px;height:56px;border-radius:50%;background:#fff;color:#000;display:inline-flex;align-items:center;justify-content:center;transition:transform .4s ease,background .4s}
+.arrow:hover{transform:rotate(45deg);background:#88ff2a;color:#000}
+.nav a{color:rgba(255,255,255,.75);font-size:16px;font-weight:500;transition:color .3s}
+.nav a:hover{color:#88ff2a}
+.dd{position:relative}
+.dd-trigger{display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.dd-trigger svg{transition:transform .3s}
+.dd:hover .dd-trigger svg,.dd:focus-within .dd-trigger svg{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:100%;left:-24px;padding:14px;box-sizing:border-box;background:#0d0d0d;border:1px solid rgba(255,255,255,.13);border-top:3px solid #88ff2a;border-radius:0 0 18px 18px;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .35s,transform .35s,visibility .35s;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
+.nav .dd-menu a{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 14px;border-radius:10px;font-size:15px;color:rgba(255,255,255,.8);transition:background .3s,color .3s,padding .3s}
+.nav .dd-menu a:before{content:"";width:6px;height:6px;border-radius:50%;background:#88ff2a;flex:none}
+.nav .dd-menu a:hover{background:#88ff2a;color:#000;padding-left:20px}
+.nav .dd-menu a:hover:before{background:#000}
+.photo{transition:transform 1s cubic-bezier(.2,.8,.2,1),filter .6s}
+.photo-wrap:hover .photo{transform:scale(1.06)}
+.skill-card{border:1px solid rgba(255,255,255,.13);border-radius:24px;padding:32px;background:#000;transition:border-color .4s,transform .4s}
+.skill-card:hover{border-color:#88ff2a;transform:translateY(-6px)}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;background:#151414;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.85);font-size:14px;transition:background .3s,color .3s}
+.chip:hover{background:#88ff2a;color:#000}
+.stat-card{transition:transform .4s ease,box-shadow .4s ease}
+.stat-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 22px 44px rgba(136,255,42,.25)}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:88px}
