@@ -42,6 +42,8 @@ a{color:#88ff2a;text-decoration:none}a:hover{color:#ffffff}
 .skill-card:hover{border-color:#88ff2a;transform:translateY(-6px)}
 .chip{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;background:#151414;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.85);font-size:14px;transition:background .3s,color .3s}
 .chip:hover{background:#88ff2a;color:#000}
+.stat-card{transition:transform .4s ease,box-shadow .4s ease}
+.stat-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 22px 44px rgba(136,255,42,.25)}
 /* ===== header / hero extra effects ===== */
 .site-header{animation:slideDown .9s cubic-bezier(.2,.8,.2,1) both}
 @keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
@@ -288,18 +290,18 @@ Specialist in <span class="role-window"><span class="role-track"><span>Social Me
 <a class="btn-ghost" href="#experience">My Journey</a>
 </div>
 </div>
-<div class="reveal-r" style="flex: 1 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px">
-<div style="border-radius: 24px; background: #88ff2a; color: #000000; padding: 34px 28px">
-<div style="font-size: clamp(48px, 5vw, 68px); font-weight: 700; line-height: 1">6+</div>
-<div style="margin-top: 12px; font-size: 17px; font-weight: 500">Years in digital marketing</div>
+<div class="reveal-r" style="flex: 1 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; align-content: start">
+<div class="stat-card" style="border-radius: 24px; background: #88ff2a; color: #000000; padding: 28px 24px; min-height: 190px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
+<div style="font-size: clamp(44px, 4.2vw, 60px); font-weight: 700; line-height: 1; letter-spacing: -0.02em">6+</div>
+<div style="font-size: 15px; font-weight: 600; line-height: 1.35">Years of<br>Experience</div>
 </div>
-<div style="border-radius: 24px; background: #151414; border: 1px solid rgba(255,255,255,0.13); padding: 34px 28px">
-<div style="font-size: clamp(48px, 5vw, 68px); font-weight: 700; line-height: 1; color: #ffffff">50<span style="color: #88ff2a">+</span></div>
-<div style="margin-top: 12px; font-size: 17px">Clients worked with</div>
+<div class="stat-card" style="border-radius: 24px; background: #ffffff; color: #000000; padding: 28px 24px; min-height: 190px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
+<div style="font-size: clamp(44px, 4.2vw, 60px); font-weight: 700; line-height: 1; letter-spacing: -0.02em">50+</div>
+<div style="font-size: 15px; font-weight: 600; line-height: 1.35">Clients<br>Worked With</div>
 </div>
-<div style="border-radius: 24px; background: #151414; border: 1px solid rgba(255,255,255,0.13); padding: 34px 28px">
-<div style="font-size: clamp(48px, 5vw, 68px); font-weight: 700; line-height: 1; color: #ffffff">10<span style="color: #88ff2a">+</span></div>
-<div style="margin-top: 12px; font-size: 17px">Brands &amp; organisations served</div>
+<div class="stat-card" style="border-radius: 24px; background: #c6ff8c; color: #000000; padding: 28px 24px; min-height: 190px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
+<div style="font-size: clamp(44px, 4.2vw, 60px); font-weight: 700; line-height: 1; letter-spacing: -0.02em">10+</div>
+<div style="font-size: 15px; font-weight: 600; line-height: 1.35">Brands &amp;<br>Organisations</div>
 </div>
 </div>
 </div>
