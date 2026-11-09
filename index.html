@@ -231,6 +231,45 @@ section[style*="padding: 120px 0"]:not([id])::before{left:-160px;bottom:-200px;a
 section[style*="padding: 100px 0"]{background-image:repeating-linear-gradient(-45deg,rgba(136,255,42,.045) 0 1px,transparent 1px 18px) !important;animation:stripeSlide 30s linear infinite}
 section[style*="padding: 120px 0"]:not([id]){background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 24px);animation:linesUp 12s linear infinite}
 @keyframes linesUp{to{background-position:0 -240px}}
+/* ===== global background layer (fills every plain black area) ===== */
+div:has(> .bgfx){isolation:isolate}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 34px),repeating-linear-gradient(-45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 34px),radial-gradient(rgba(136,255,42,.10) 1px,transparent 1.5px);background-size:auto,auto,48px 48px;animation:fxDrift 40s linear infinite}
+@keyframes fxDrift{to{background-position:48px 0,-48px 0,48px 48px}}
+.bgfx i{position:absolute;display:block;border-radius:50%;will-change:transform}
+.bgfx i:nth-child(1){width:720px;height:720px;left:-240px;top:10%;background:radial-gradient(circle,rgba(136,255,42,.10),rgba(136,255,42,0) 65%);animation:aurA 34s ease-in-out infinite alternate}
+.bgfx i:nth-child(2){width:620px;height:620px;right:-220px;top:45%;background:radial-gradient(circle,rgba(136,255,42,.08),rgba(136,255,42,0) 65%);animation:aurB 41s ease-in-out infinite alternate}
+.bgfx i:nth-child(3){width:520px;height:520px;left:35%;bottom:-260px;background:radial-gradient(circle,rgba(255,255,255,.05),rgba(255,255,255,0) 65%);animation:aurA 29s ease-in-out infinite alternate-reverse}
+.bgfx i:nth-child(4){border-radius:0;width:140vmax;height:90px;left:-20vmax;top:30%;background:linear-gradient(180deg,transparent,rgba(136,255,42,.045),transparent);transform:rotate(-24deg);animation:beam 16s linear infinite}
+.bgfx i:nth-child(5),.bgfx i:nth-child(6){border-radius:2px;width:160px;height:1px;top:0;left:0;background:linear-gradient(90deg,rgba(136,255,42,0),#88ff2a);opacity:0;animation:star 9s linear infinite}
+.bgfx i:nth-child(6){animation-delay:-4.5s;animation-duration:11s}
+@keyframes aurA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18vw,-8vh) scale(1.2)}100%{transform:translate(6vw,14vh) scale(.9)}}
+@keyframes aurB{0%{transform:translate(0,0) scale(1.1)}50%{transform:translate(-16vw,10vh) scale(.85)}100%{transform:translate(-6vw,-12vh) scale(1.15)}}
+@keyframes beam{0%{transform:translateY(-70vh) rotate(-24deg)}100%{transform:translateY(90vh) rotate(-24deg)}}
+@keyframes star{0%{transform:translate(10vw,8vh) rotate(28deg);opacity:0}6%{opacity:.8}18%{transform:translate(60vw,38vh) rotate(28deg);opacity:0}100%{transform:translate(60vw,38vh) rotate(28deg);opacity:0}}
+/* header: dot texture + sweeping lime line */
+.site-header::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(136,255,42,.12) 1px,transparent 1.5px);background-size:18px 18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);animation:hdrDots 20s linear infinite}
+@keyframes hdrDots{to{background-position:180px 0}}
+.site-header::after{content:"";position:absolute;left:0;bottom:-1px;width:28%;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,#88ff2a,transparent);animation:hdrSweep 7s ease-in-out infinite}
+@keyframes hdrSweep{0%{transform:translateX(-100%)}100%{transform:translateX(460%)}}
+/* skills ticker strip */
+section[aria-label="Skills ticker"]{position:relative;background-image:repeating-linear-gradient(0deg,rgba(136,255,42,.05) 0 1px,transparent 1px 6px);animation:linesUp 6s linear infinite}
+/* work section: diamond lattice */
+#work{background-image:repeating-linear-gradient(60deg,rgba(136,255,42,.04) 0 1px,transparent 1px 40px),repeating-linear-gradient(-60deg,rgba(136,255,42,.04) 0 1px,transparent 1px 40px);animation:latDrift 32s linear infinite}
+@keyframes latDrift{to{background-position:0 160px,0 160px}}
+/* footer: rings rising from the bottom + perspective floor */
+#contact{isolation:isolate}
+#contact::before{content:"";position:absolute;left:50%;bottom:-700px;width:1400px;height:1400px;margin-left:-700px;z-index:-1;pointer-events:none;border-radius:50%;background:repeating-radial-gradient(circle,rgba(136,255,42,.075) 0 1px,transparent 1px 56px);-webkit-mask-image:radial-gradient(circle,#000 20%,transparent 70%);mask-image:radial-gradient(circle,#000 20%,transparent 70%);animation:ringRise 10s linear infinite}
+@keyframes ringRise{from{transform:scale(1)}to{transform:scale(1.08)}}
+#contact::after{content:"";position:absolute;left:-25%;right:-25%;bottom:0;height:260px;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(136,255,42,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(136,255,42,.10) 1px,transparent 1px);background-size:64px 64px;transform:perspective(420px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(0deg,#000,transparent);mask-image:linear-gradient(0deg,#000,transparent);animation:floorMove 4s linear infinite}
+@keyframes floorMove{to{background-position:0 64px,0 0}}
+#contact > div:first-child{background-image:repeating-linear-gradient(115deg,rgba(136,255,42,.06) 0 2px,transparent 2px 22px) !important;animation:stripeSlide 14s linear infinite}
+.ft-badge{background-image:repeating-conic-gradient(rgba(136,255,42,.08) 0 6deg,transparent 6deg 18deg)}
+/* black cards: fine texture + hover sheen */
+.skill-card,.cl-card,.work{background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1.4px),linear-gradient(115deg,transparent 40%,rgba(136,255,42,.10) 50%,transparent 60%);background-size:16px 16px,250% 100%;background-position:0 0,150% 0;background-repeat:repeat,no-repeat;transition:background-position .9s ease,border-color .4s,transform .4s}
+.skill-card:hover,.cl-card:hover,.work:hover{background-position:0 0,-50% 0}
+.svc{background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.4px);background-size:16px 16px}
+@media (max-width:700px){.bgfx i:nth-child(1),.bgfx i:nth-child(2){width:420px;height:420px}#contact::before{width:900px;height:900px;margin-left:-450px;bottom:-450px}}
+@media (prefers-reduced-motion:reduce){.bgfx,.bgfx i,.site-header::before,.site-header::after,#contact::before,#contact::after,#work,section[aria-label="Skills ticker"]{animation:none !important}}
 #services [style*="minmax(280px, 1fr)"]{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr)) !important}
 .mnav{display:none}
 @media (max-width: 900px){.mnav{display:block;order:3}.mnav summary{list-style:none;width:48px;height:48px;box-sizing:border-box;border-radius:14px;border:1px solid rgba(255,255,255,.22);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}.mnav summary::-webkit-details-marker{display:none}.mnav summary span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}.mnav[open] summary{border-color:#88ff2a}.mnav[open] summary span:nth-child(1){transform:translateY(7px) rotate(45deg)}.mnav[open] summary span:nth-child(2){opacity:0}.mnav[open] summary span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mnav-panel{position:absolute;left:0;right:0;top:100%;background:#050505;border-bottom:1px solid rgba(136,255,42,.35);padding:8px 24px 24px;display:flex;flex-direction:column;animation:fadeUp .35s ease both}.mnav-panel a{display:flex;align-items:center;min-height:52px;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:18px;font-weight:500}.mnav-panel a:hover{color:#88ff2a}.mnav-panel a.mnav-wa{margin-top:16px;justify-content:center;border:0;border-radius:999px;background:#88ff2a;color:#000;font-weight:600}.site-header .btn{margin-left:auto}}
@@ -250,6 +289,7 @@ section[style*="padding: 120px 0"]:not([id]){background-image:repeating-linear-g
 <div style="background: #000000; color: rgba(255,255,255,0.6); font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; line-height: 1.75; overflow-x: clip">
 <div class="progress" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
+<div class="bgfx" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <a class="wa-float" href="https://wa.me/923228091396?text=Hi%20Fahad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener" aria-label="Chat with Fahad on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M9.5 9.5c.3 1.6 1.4 3 3 3.8l.9-.9c.2-.2.5-.2.8-.1l1.3.6c.3.1.4.4.3.7-.3 1-1.2 1.6-2.2 1.4-3-.6-5.3-2.9-5.9-5.9-.2-1 .4-1.9 1.4-2.2.3-.1.6 0 .7.3l.6 1.3c.1.3.1.6-.1.8z"></path></svg><span aria-hidden="true">Chat on WhatsApp</span></a>
 <header class="site-header" style="position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08)">
 <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px">
