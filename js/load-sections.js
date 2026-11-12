@@ -3,7 +3,7 @@
 (async function () {
   var slots = Array.prototype.slice.call(document.querySelectorAll('[data-section]'));
   var htmls = await Promise.all(slots.map(function (slot) {
-    return fetch(slot.getAttribute('data-section'), { cache: 'no-cache' })
+    return fetch(slot.getAttribute('data-section'))
       .then(function (r) { return r.ok ? r.text() : '<!-- could not load ' + slot.getAttribute('data-section') + ' -->'; })
       .catch(function () { return ''; });
   }));
