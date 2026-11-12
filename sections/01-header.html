@@ -1,12 +1,11 @@
 <!-- FILE: sections/01-header.html
-     Top bar: logo, menu links, Services/Skills dropdowns, mobile menu, "Let's Talk" button. Also the floating WhatsApp button (wa.me number) and the background effect layers.
+     Top bar: logo, menu links, Services/Skills dropdowns, mobile menu, "Let's Talk" button. Also the floating WhatsApp button (wa.me number) and the background effect layers and the light/dark mode button.
      This file is loaded into index.html automatically. Keep the HTML structure, classes and styles as they are. -->
 <!-- ================= HEADER ================= -->
 <div class="progress" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
 <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <a class="wa-float" href="https://wa.me/923228091396?text=Hi%20Fahad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener" aria-label="Chat with Fahad on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M9.5 9.5c.3 1.6 1.4 3 3 3.8l.9-.9c.2-.2.5-.2.8-.1l1.3.6c.3.1.4.4.3.7-.3 1-1.2 1.6-2.2 1.4-3-.6-5.3-2.9-5.9-5.9-.2-1 .4-1.9 1.4-2.2.3-.1.6 0 .7.3l.6 1.3c.1.3.1.6-.1.8z"></path></svg><span aria-hidden="true">Chat on WhatsApp</span></a>
-<header class="site-header" style="position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08)">
+<header class="site-header" style="position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,0.72); border-bottom: 1px solid rgba(255,255,255,0.08)">
   <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px">
     <a href="#home" style="display: flex; align-items: center; gap: 10px; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">
       <span class="logo-mark" style="width: 40px; height: 40px; border-radius: 12px; background: #88ff2a; color: #000000; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800">F</span>
@@ -56,6 +55,7 @@
 <a class="mnav-wa" href="https://wa.me/923228091396?text=Hi%20Fahad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener">Chat on WhatsApp</a>
 </div>
 </details>
+<button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button>
 <a class="btn" href="#contact" style="min-height: 48px; padding: 0 24px">Let’s Talk
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
     </a>
