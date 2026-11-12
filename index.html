@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark light">
+<!-- light/dark mode: applies the visitor's last choice before the page paints (dark is the default) -->
+<script>try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('meta[name="theme-color"]').content='#f5f7f2'}}catch(e){}</script>
 
 <!-- ====== SITE TITLE + SHARE PREVIEW (Google / WhatsApp / LinkedIn) ====== -->
 <title>Fahad Naeem — Digital Marketing Manager</title>
@@ -27,7 +31,10 @@
 <!-- ====== FONT ====== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- loads without blocking the page (text shows straight away in a fallback font, then swaps) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <!-- ====== STYLES (design, colours, animations) – see /css folder ====== -->
 <link rel="stylesheet" href="css/1-base.css">
@@ -36,6 +43,7 @@
 <link rel="stylesheet" href="css/4-backgrounds.css">
 <link rel="stylesheet" href="css/5-responsive.css">
 <link rel="stylesheet" href="css/6-performance.css">
+<link rel="stylesheet" href="css/7-light-theme.css">
 
 <!-- ====== SPEED: start downloading the page parts and photo straight away ====== -->
 <link rel="preload" href="fahad-portrait.webp" as="image" fetchpriority="high">
@@ -61,7 +69,7 @@
   To remove a part, delete its line below. To reorder, move the lines.
   Full guide: README.md
 -->
-<div style="background: #000000; color: rgba(255,255,255,0.6); font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; line-height: 1.75; overflow-x: clip">
+<div class="site" style="background: #000000; color: rgba(255,255,255,0.6); font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; line-height: 1.75; overflow-x: clip">
   <div data-section="sections/01-header.html"></div>
   <div data-section="sections/02-hero.html"></div>
   <div data-section="sections/03-marquee.html"></div>

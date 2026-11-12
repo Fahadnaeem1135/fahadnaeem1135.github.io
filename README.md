@@ -25,6 +25,7 @@ The site is split into small files, so you can edit any part with a free AI chat
 | Colours, sizes, animations, backgrounds | files in the `css/` folder |
 | Mobile layout | `css/5-responsive.css` |
 | Speed settings (no need to edit) | `css/6-performance.css` |
+| Light mode colours and the sun/moon button | `css/7-light-theme.css` |
 | Your resume (Download / View Resume buttons) | `Fahad-Naeem-Resume.pdf` |
 | Page title and Google/WhatsApp share preview | `index.html` (top part) |
 
@@ -102,10 +103,13 @@ css/
   3-components.css    ← cards, experience list, clients, footer, WhatsApp button
   4-backgrounds.css   ← background textures and moving effects
   5-responsive.css    ← mobile and tablet layout
-  6-performance.css   ← keeps animations smooth (no need to edit)
-js/load-sections.js   ← loads the section files (no need to edit)
+  6-performance.css   ← keeps the site fast and smooth (no need to edit)
+  7-light-theme.css   ← light mode colours + sun/moon button
+js/load-sections.js   ← loads the section files, pauses off-screen animations, runs the light/dark button (no need to edit)
 fahad-portrait.webp   ← your photo
 Fahad-Naeem-Resume.pdf ← your resume
 ```
+
+**Light / dark mode:** dark is the default. The sun/moon button in the header switches to light mode and remembers the visitor's choice. If you add new colours to a section, ask Claude to also add the light-mode version to `css/7-light-theme.css`.
 
 Theme colours: lime `#88ff2a` (also written `rgba(136,255,42, …)`), black `#000000`, dark grey `#0d0d0d`, white `#ffffff`.
