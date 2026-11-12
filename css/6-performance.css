@@ -1,58 +1,53 @@
 /* =========================================================
    PERFORMANCE
-   Keeps every effect smooth on phones and laptops:
-   - moving textures use GPU-friendly "transform" instead of repainting
-   - sections off-screen are skipped until you scroll to them
-   - the heaviest decorative layers are switched off on phones
+   Keeps the site fast and smooth on every phone and laptop:
+   - background textures and glows are still shown, but they stand still
+     (moving full-screen layers were the main cause of lag)
+   - small accents (text roles, marquee, buttons, WhatsApp ring) still animate
+   - animations pause automatically when their section is off-screen
    You normally never need to edit this file.
    ========================================================= */
 
-/* 1. skip rendering of sections that are off-screen */
-/* (content-visibility removed: it broke menu jump links) */
+/* 1. header: solid glass instead of live blur (blur re-renders every scroll frame) */
+.site-header{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;background:rgba(5,5,5,.92) !important}
 
-/* 2. header: solid glass instead of live blur (blur re-renders every scroll frame) */
-.site-header{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;background:rgba(5,5,5,.9) !important}
+/* 2. full-screen layers: film grain removed, global glow layer kept but still */
+.grain{display:none !important}
+.bgfx,.bgfx i{animation:none !important;will-change:auto !important}
+.bgfx i:nth-child(n+4){display:none !important}
 
-/* 3. textures stay, but no longer repaint every frame */
-#about,#services,#skills,#clients,#experience,#work,
-section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]),
-section[aria-label="Skills ticker"],#contact > div:first-child,
-.site-header::before,.bgfx,.grain{animation:none !important}
+/* 3. section textures, glows and particles: shown, but not moving */
+#home::before,#home::after,
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id])),
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::before,
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::after,
+section[aria-label="Skills ticker"],#contact::before,#contact::after,#contact > div:first-child,
+.site-header::before,.eyebrow:before,.ping:before,
+.shimmer{animation:none !important;will-change:auto !important}
+.shimmer{background-position:0 0 !important}
 
-/* hero grid: same drifting motion, now moved by the GPU */
-#home::before{inset:-64px 0 0 -64px;animation:gridShift 16s linear infinite !important;will-change:transform}
-@keyframes gridShift{to{transform:translate(64px,64px)}}
-
-/* rising particles: GPU-moved layer instead of repainting the section */
-:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::after{inset:0 0 -620px 0;animation:particlesUp 40s linear infinite !important;will-change:transform}
-@keyframes particlesUp{to{transform:translateY(-620px)}}
-
-/* footer floor grid: GPU-moved */
-#contact::after{animation:none !important}
-
-/* button shine: transform instead of "left" */
+/* 4. light accents that stay animated, using GPU-friendly transforms */
 .btn:after{animation:shineT 3.5s ease-in-out infinite !important}
 @keyframes shineT{0%,60%{transform:translateX(0) skewX(-20deg)}100%{transform:translateX(480%) skewX(-20deg)}}
-
-/* hero light streaks: transform instead of "top" */
 .vline:after{top:-90px;animation:dropT 6s linear infinite !important}
 @keyframes dropT{to{transform:translateY(1400px)}}
-
-/* glowing pulses: GPU ring instead of animated shadow */
 .wa-float{animation:none !important;box-shadow:0 12px 30px rgba(0,0,0,.5)}
 .wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(136,255,42,.55);z-index:-1;animation:ringOut 2.4s ease-out infinite;pointer-events:none}
 @keyframes ringOut{from{transform:scale(1);opacity:.7}to{transform:scale(1.7);opacity:0}}
-.eyebrow:before{animation:none !important}
-.ping:before{animation:none !important}
 
-/* film grain: static and lighter */
-.grain{opacity:.45}
+/* 5. card hover sheen: cheap transform/opacity only */
+.skill-card,.cl-card,.work{transition:border-color .3s,transform .3s !important}
 
-/* 4. phones & small tablets: switch off the heaviest decorative layers */
+/* 6. anything off-screen pauses (set by js/load-sections.js) */
+.is-offscreen,.is-offscreen *,.is-offscreen *::before,.is-offscreen *::after{animation-play-state:paused !important}
+
+/* 7. phones & small tablets: lighter decoration */
 @media (max-width: 900px){
-  .grain,.bgfx i,#home::after,.orbit,.vline{display:none !important}
-  :is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::before,
-  :is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::after{animation:none !important}
-  #home::before{animation:none !important}
+  .bgfx i,#home::after,.orbit,.vline{display:none !important}
   .pill,.float-chip,.ft-float{animation:none !important}
+}
+
+/* 8. visitors who ask their device for less motion */
+@media (prefers-reduced-motion: reduce){
+  *:not(.count),*::before,*:not(.count)::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
 }
