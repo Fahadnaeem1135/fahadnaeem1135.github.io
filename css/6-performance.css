@@ -1,0 +1,58 @@
+/* =========================================================
+   PERFORMANCE
+   Keeps every effect smooth on phones and laptops:
+   - moving textures use GPU-friendly "transform" instead of repainting
+   - sections off-screen are skipped until you scroll to them
+   - the heaviest decorative layers are switched off on phones
+   You normally never need to edit this file.
+   ========================================================= */
+
+/* 1. skip rendering of sections that are off-screen */
+/* (content-visibility removed: it broke menu jump links) */
+
+/* 2. header: solid glass instead of live blur (blur re-renders every scroll frame) */
+.site-header{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;background:rgba(5,5,5,.9) !important}
+
+/* 3. textures stay, but no longer repaint every frame */
+#about,#services,#skills,#clients,#experience,#work,
+section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]),
+section[aria-label="Skills ticker"],#contact > div:first-child,
+.site-header::before,.bgfx,.grain{animation:none !important}
+
+/* hero grid: same drifting motion, now moved by the GPU */
+#home::before{inset:-64px 0 0 -64px;animation:gridShift 16s linear infinite !important;will-change:transform}
+@keyframes gridShift{to{transform:translate(64px,64px)}}
+
+/* rising particles: GPU-moved layer instead of repainting the section */
+:is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::after{inset:0 0 -620px 0;animation:particlesUp 40s linear infinite !important;will-change:transform}
+@keyframes particlesUp{to{transform:translateY(-620px)}}
+
+/* footer floor grid: GPU-moved */
+#contact::after{animation:none !important}
+
+/* button shine: transform instead of "left" */
+.btn:after{animation:shineT 3.5s ease-in-out infinite !important}
+@keyframes shineT{0%,60%{transform:translateX(0) skewX(-20deg)}100%{transform:translateX(480%) skewX(-20deg)}}
+
+/* hero light streaks: transform instead of "top" */
+.vline:after{top:-90px;animation:dropT 6s linear infinite !important}
+@keyframes dropT{to{transform:translateY(1400px)}}
+
+/* glowing pulses: GPU ring instead of animated shadow */
+.wa-float{animation:none !important;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(136,255,42,.55);z-index:-1;animation:ringOut 2.4s ease-out infinite;pointer-events:none}
+@keyframes ringOut{from{transform:scale(1);opacity:.7}to{transform:scale(1.7);opacity:0}}
+.eyebrow:before{animation:none !important}
+.ping:before{animation:none !important}
+
+/* film grain: static and lighter */
+.grain{opacity:.45}
+
+/* 4. phones & small tablets: switch off the heaviest decorative layers */
+@media (max-width: 900px){
+  .grain,.bgfx i,#home::after,.orbit,.vline{display:none !important}
+  :is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::before,
+  :is(#about,#services,#skills,#work,#clients,#experience,section[style*="padding: 100px 0"],section[style*="padding: 120px 0"]:not([id]))::after{animation:none !important}
+  #home::before{animation:none !important}
+  .pill,.float-chip,.ft-float{animation:none !important}
+}
