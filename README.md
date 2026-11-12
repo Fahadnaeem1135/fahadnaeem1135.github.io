@@ -24,6 +24,8 @@ The site is split into small files, so you can edit any part with a free AI chat
 | Contact area and footer (email, phone, LinkedIn) | `sections/12-contact-footer.html` |
 | Colours, sizes, animations, backgrounds | files in the `css/` folder |
 | Mobile layout | `css/5-responsive.css` |
+| Speed settings (no need to edit) | `css/6-performance.css` |
+| Your resume (Download / View Resume buttons) | `Fahad-Naeem-Resume.pdf` |
 | Page title and Google/WhatsApp share preview | `index.html` (top part) |
 
 **Your contact details appear in more than one file:**
@@ -54,7 +56,7 @@ Rules:
 
 5. Copy Claude's code back to GitHub: click in the editor, press **Ctrl + A**, then **Ctrl + V**.
 6. Click **Commit changes…**, then **Commit changes** again.
-7. Wait 1–2 minutes, open your site and press **Ctrl + F5** to see the change.
+7. Wait 1–2 minutes, open your site and press **Ctrl + F5** to see the change (it can take up to 10 minutes to show for other visitors).
 
 **Tip for `08-clients.html` (the biggest file):** if Claude's answer gets cut off, ask only for the new or changed card. Use a message like "Give me only the HTML for one new client card, styled exactly like the existing cards." On GitHub, paste that card right after the last `</article>` in the list.
 
@@ -75,7 +77,8 @@ Rules:
 - Your photo is `fahad-portrait.webp` in the main folder. To replace it, upload a new photo with **exactly the same name**: **Add file → Upload files**, and GitHub replaces the old one. A portrait (taller than wide) photo works best.
 - Client logos are in `images/logos/` (one square picture per client, named after its Instagram handle).
 - To add a new image, upload it to the main folder and ask Claude to use `your-image-name.jpg` in the right place.
-- `Fahad-Naeem-CV.pdf` is your CV.
+- `Fahad-Naeem-Resume.pdf` is your resume (used by every Download/View Resume button). To update it, upload a new PDF with **exactly the same name**.
+- The Brighto card plays the YouTube video `Fu3n0iP9H4c`. To show a different video, ask Claude to change that video ID in `sections/07-work.html`.
 
 ---
 
@@ -99,9 +102,10 @@ css/
   3-components.css    ← cards, experience list, clients, footer, WhatsApp button
   4-backgrounds.css   ← background textures and moving effects
   5-responsive.css    ← mobile and tablet layout
+  6-performance.css   ← keeps animations smooth (no need to edit)
 js/load-sections.js   ← loads the section files (no need to edit)
 fahad-portrait.webp   ← your photo
-Fahad-Naeem-CV.pdf    ← your CV
+Fahad-Naeem-Resume.pdf ← your resume
 ```
 
 Theme colours: lime `#88ff2a` (also written `rgba(136,255,42, …)`), black `#000000`, dark grey `#0d0d0d`, white `#ffffff`.
