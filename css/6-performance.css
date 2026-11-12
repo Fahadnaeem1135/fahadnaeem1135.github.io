@@ -44,7 +44,7 @@ section[aria-label="Skills ticker"],#contact::before,#contact::after,#contact > 
 /* 7. phones & small tablets: lighter decoration */
 @media (max-width: 900px){
   .bgfx i,#home::after,.orbit,.vline{display:none !important}
-  .pill,.float-chip,.ft-float{animation:none !important}
+  .pill,.float-chip,.ft-float,.float,.glow-drift,.bubble,.logo-mark{animation:none !important}
 }
 
 /* 8. visitors who ask their device for less motion */
